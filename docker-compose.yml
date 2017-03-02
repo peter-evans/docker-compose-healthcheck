@@ -1,0 +1,34 @@
+version: '2.1'
+
+services:
+  kong-database:
+    image: postgres:9.4
+    ports:
+      - 5432
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+    healthcheck:
+      test: ["CMD-SHELL", "psql -h 'localhost' -U 'postgres' -c '\\l'"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  kong:
+    image: kong
+    restart: always
+    depends_on:
+      kong-database:
+        condition: service_healthy  
+    links:
+      - kong-database:kong-database
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "7946:7946"
+      - "7946:7946/udp"
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=kong-database
+  

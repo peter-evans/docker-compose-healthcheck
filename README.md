@@ -6,7 +6,7 @@ This allows a check to be configured in order to determine whether or not contai
 ## How can I wait for container X before starting Y?
 
 This is a common problem and in earlier versions of docker-compose requires the use of additional tools and scripts such as [wait-for-it](https://github.com/vishnubob/wait-for-it) and [dockerize](https://github.com/jwilder/dockerize).
-Using the `healthcheck` parameter the use of these additional tools and scripts is often not necessary.
+Using the `healthcheck` parameter the use of these additional tools and scripts is often no longer necessary.
 
 ## Waiting for PostgreSQL to be "healthy"
 
@@ -21,7 +21,7 @@ healthcheck:
   timeout: 30s
   retries: 3
 ```
-If the check is successful, the container will be marked as `healthy`. Until then, it will remain in an `unhealthy` state.
+If the check is successful the container will be marked as `healthy`. Until then it will remain in an `unhealthy` state.
 For more details about the healthcheck parameters `interval`, `timeout` and `retries` see the documentation [here](https://docs.docker.com/engine/reference/builder/#healthcheck).
 
 Services that depend on PostgreSQL can then be configured with the `depends_on` parameter as follows:
@@ -33,7 +33,7 @@ depends_on:
 
 ## Waiting for PostgreSQL before starting Kong
 
-In [this complete example](docker-compose.yml), docker-compose waits for the PostgreSQL service to be "healthy" before starting [Kong](https://getkong.org/), an open-source API gateway service.
+In [this complete example](docker-compose.yml) docker-compose waits for the PostgreSQL service to be "healthy" before starting [Kong](https://getkong.org/), an open-source API gateway.
 
 Test it out with:
 ```

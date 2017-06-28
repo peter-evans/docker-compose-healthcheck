@@ -13,10 +13,10 @@ Using the `healthcheck` parameter the use of these additional tools and scripts 
 A particularly common use case is a service that depends on a database, such as PostgreSQL.
 We can configure docker-compose to wait for the PostgreSQL container to startup and be ready to accept requests before continuing.
 
-The following healthcheck has been configured to periodically check if PostgreSQL reponds to the `\l` list query.
+The following healthcheck has been configured to periodically check if PostgreSQL is ready using the `pg_isready` command, see the documentation [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
 ```
 healthcheck:
-  test: ["CMD-SHELL", "psql -h 'localhost' -U 'postgres' -c '\\l'"]
+  test: ["CMD-SHELL", "pg_isready"]
   interval: 30s
   timeout: 30s
   retries: 3

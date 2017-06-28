@@ -42,8 +42,11 @@ docker-compose up -d
 ```
 Wait until both services are running:
 ```
-Starting dockercomposehealthcheck_kong-database_1
-Starting dockercomposehealthcheck_kong_1
+Creating network "dockercomposehealthcheck_default" with the default driver
+Creating dockercomposehealthcheck_kong-database_1 ... 
+Creating dockercomposehealthcheck_kong-database_1 ... done
+Creating dockercomposehealthcheck_kong_1 ... 
+Creating dockercomposehealthcheck_kong_1 ... done
 ```
 Test by querying Kong's admin endpoint:
 ```

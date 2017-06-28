@@ -1,4 +1,5 @@
 # docker-compose-healthcheck
+[![Build Status](https://travis-ci.org/peter-evans/docker-compose-healthcheck.svg?branch=master)](https://travis-ci.org/peter-evans/docker-compose-healthcheck)
 
 Since docker-compose [version 2.1 file format](https://docs.docker.com/compose/compose-file/compose-versioning/#version-21) the [healthcheck](https://docs.docker.com/compose/compose-file/#healthcheck) parameter has been introduced.
 This allows a check to be configured in order to determine whether or not containers for a service are "healthy."
@@ -13,7 +14,7 @@ Using the `healthcheck` parameter the use of these additional tools and scripts 
 A particularly common use case is a service that depends on a database, such as PostgreSQL.
 We can configure docker-compose to wait for the PostgreSQL container to startup and be ready to accept requests before continuing.
 
-The following healthcheck has been configured to periodically check if PostgreSQL is ready using the `pg_isready` command, see the documentation [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
+The following healthcheck has been configured to periodically check if PostgreSQL is ready using the `pg_isready` command. See the documentation for the `pg_isready` command [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
 ```
 healthcheck:
   test: ["CMD-SHELL", "pg_isready"]

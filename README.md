@@ -18,9 +18,9 @@ The following healthcheck has been configured to periodically check if PostgreSQ
 ```
 healthcheck:
   test: ["CMD-SHELL", "pg_isready -U postgres"]
-  interval: 30s
-  timeout: 30s
-  retries: 3
+  interval: 10s
+  timeout: 5s
+  retries: 5
 ```
 If the check is successful the container will be marked as `healthy`. Until then it will remain in an `unhealthy` state.
 For more details about the healthcheck parameters `interval`, `timeout` and `retries` see the documentation [here](https://docs.docker.com/engine/reference/builder/#healthcheck).
@@ -34,7 +34,7 @@ depends_on:
 
 ## Waiting for PostgreSQL before starting Kong
 
-In [this complete example](docker-compose.yml) docker-compose waits for the PostgreSQL service to be "healthy" before starting [Kong](https://getkong.org/), an open-source API gateway.
+In [this complete example](docker-compose.yml) docker-compose waits for the PostgreSQL service to be "healthy" before starting [Kong](https://getkong.org/), an open-source API gateway. It also waits for an additional ephemeral container to complete Kong's database migration process.
 
 Test it out with:
 ```
@@ -42,11 +42,10 @@ docker-compose up -d
 ```
 Wait until both services are running:
 ```
-Creating network "dockercomposehealthcheck_default" with the default driver
-Creating dockercomposehealthcheck_kong-database_1 ... 
-Creating dockercomposehealthcheck_kong-database_1 ... done
-Creating dockercomposehealthcheck_kong_1 ... 
-Creating dockercomposehealthcheck_kong_1 ... done
+Creating network "docker-compose-healthcheck_default" with the default driver
+Creating docker-compose-healthcheck_kong-database_1 ... done
+Creating docker-compose-healthcheck_kong-migration_1 ... done
+Creating docker-compose-healthcheck_kong_1           ... done
 ```
 Test by querying Kong's admin endpoint:
 ```

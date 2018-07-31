@@ -15,7 +15,7 @@ A particularly common use case is a service that depends on a database, such as 
 We can configure docker-compose to wait for the PostgreSQL container to startup and be ready to accept requests before continuing.
 
 The following healthcheck has been configured to periodically check if PostgreSQL is ready using the `pg_isready` command. See the documentation for the `pg_isready` command [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
-```
+```yml
 healthcheck:
   test: ["CMD-SHELL", "pg_isready -U postgres"]
   interval: 10s
@@ -26,7 +26,7 @@ If the check is successful the container will be marked as `healthy`. Until then
 For more details about the healthcheck parameters `interval`, `timeout` and `retries` see the documentation [here](https://docs.docker.com/engine/reference/builder/#healthcheck).
 
 Services that depend on PostgreSQL can then be configured with the `depends_on` parameter as follows:
-```
+```yml
 depends_on:
   postgres-database:
     condition: service_healthy

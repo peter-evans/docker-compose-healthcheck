@@ -15,7 +15,7 @@ Docker Composeの[バージョン2.1のファイルフォーマット](https://d
 PostgreSQLコンテナが起動し、リクエストを受け入れる準備ができたら続行するという設定ができます。
 
 以下の例では、 `pg_isready`コマンドを使用してPostgreSQLが使用可能かどうかを定期的にチェックするように設定されています。[`pg_isready`コマンドの参照](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html)
-```
+```yml
 healthcheck:
   test: ["CMD-SHELL", "pg_isready -U postgres"]
   interval: 10s
@@ -26,7 +26,7 @@ healthcheck:
 healthcheckパラメータ `interval`、` timeout`、 `retries`の詳細については、[ドキュメンテーション](https://docs.docker.com/engine/reference/builder/#healthcheck)を参照してください。
 
 それで、PostgreSQLに依存するサービスは `depends_on`パラメータで設定することができます。
-```
+```yml
 depends_on:
   postgres-database:
     condition: service_healthy

@@ -14,7 +14,7 @@ Docker Composeの[バージョン2.1のファイルフォーマット](https://d
 特によく使用されるケースは、PostgreSQLなどのデータベースに依存するサービスです。
 PostgreSQLコンテナが起動し、リクエストを受け入れる準備ができたら続行するという設定ができます。
 
-以下の例では、 `pg_isready`コマンドを使用してPostgreSQLが使用可能かどうかを定期的にチェックするように設定されています。[`pg_isready`コマンドの参照](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html)
+以下の例では、`pg_isready`コマンドを使用してPostgreSQLが使用可能かどうかを定期的にチェックするように設定されています。[`pg_isready`コマンドの参照](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html)
 ```yml
 healthcheck:
   test: ["CMD-SHELL", "pg_isready -U postgres"]

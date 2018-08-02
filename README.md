@@ -40,13 +40,10 @@ Test it out with:
 ```
 docker-compose up -d
 ```
-Wait until both services are running:
-```
-Creating network "docker-compose-healthcheck_default" with the default driver
-Creating docker-compose-healthcheck_kong-database_1 ... done
-Creating docker-compose-healthcheck_kong-migration_1 ... done
-Creating docker-compose-healthcheck_kong_1           ... done
-```
+Wait until all services are running:
+
+![Demo](/demo.gif?raw=true)
+
 Test by querying Kong's admin endpoint:
 ```
 curl http://localhost:8001/

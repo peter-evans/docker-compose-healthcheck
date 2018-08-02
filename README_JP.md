@@ -41,13 +41,11 @@ depends_on:
 ```
 docker-compose up -d
 ```
-両方のサービスが実行されるまで待ちます:
-```
-Creating network "docker-compose-healthcheck_default" with the default driver
-Creating docker-compose-healthcheck_kong-database_1 ... done
-Creating docker-compose-healthcheck_kong-migration_1 ... done
-Creating docker-compose-healthcheck_kong_1           ... done
-```
+
+全サービスが実行されるまで待ちます:
+
+![Demo](/demo.gif?raw=true)
+
 Kongの管理エンドポイントをクエリしてテストします:
 ```
 curl http://localhost:8001/

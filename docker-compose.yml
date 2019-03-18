@@ -20,7 +20,7 @@ services:
     environment:
       - KONG_DATABASE=postgres
       - KONG_PG_HOST=kong-database
-    command: kong migrations up
+    command: kong migrations bootstrap
 
   kong:
     image: kong

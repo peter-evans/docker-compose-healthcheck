@@ -1,0 +1,11 @@
+name: docker-compose-healthcheck test
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Bring up the stack
+      run: docker-compose up -d
+    - name: Test endpoint
+      run: docker run --network container:kong appropriate/curl -s -4 --retry 10 --retry-connrefused http://localhost:8001/

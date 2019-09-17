@@ -3,4 +3,4 @@ services:
 
 script:  
   - docker-compose up -d
-  - docker run --network container:dockercomposehealthcheck_kong_1 appropriate/curl --retry 10 --retry-connrefused http://localhost:8001/
+  - docker run --network container:kong appropriate/curl -s -4 --retry 10 --retry-connrefused http://localhost:8001/

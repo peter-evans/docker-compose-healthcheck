@@ -3,6 +3,7 @@ version: '2.1'
 services:
   kong-database:
     image: postgres:9.5
+    container_name: kong-postgres
     environment:
       - POSTGRES_USER=kong
       - POSTGRES_DB=kong
@@ -14,6 +15,7 @@ services:
 
   kong-migration:
     image: kong
+    container_name: kong-migration
     depends_on:
       kong-database:
         condition: service_healthy
@@ -24,6 +26,7 @@ services:
 
   kong:
     image: kong
+    container_name: kong
     restart: always
     depends_on:
       kong-database:

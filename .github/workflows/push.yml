@@ -1,4 +1,4 @@
-name: docker-compose-healthcheck test
+name: docker-compose-healthcheck
 on: push
 jobs:
   test:

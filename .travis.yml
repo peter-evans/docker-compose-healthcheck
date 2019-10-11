@@ -1,6 +1,0 @@
-services:
-  - docker
-
-script:  
-  - docker-compose up -d
-  - docker run --network container:kong appropriate/curl -s -4 --retry 10 --retry-connrefused http://localhost:8001/

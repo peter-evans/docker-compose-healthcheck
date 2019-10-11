@@ -1,5 +1,5 @@
 # docker-compose-healthcheck
-[![Build Status](https://travis-ci.org/peter-evans/docker-compose-healthcheck.svg?branch=master)](https://travis-ci.org/peter-evans/docker-compose-healthcheck)
+[![Actions Status](https://github.com/peter-evans/docker-compose-healthcheck/workflows/docker-compose-healthcheck/badge.svg)](https://github.com/peter-evans/docker-compose-healthcheck/actions)
 
 Docker Composeの[バージョン2.1のファイルフォーマット](https://docs.docker.com/compose/compose-file/compose-versioning/#version-21)が作成して以来、[healthcheck](https://docs.docker.com/compose/compose-file/#healthcheck)パラメータが導入されました。
 これにより、サービスのコンテナが「healthy」（正常）であるかどうかを判断するためのチェックを構成できます。

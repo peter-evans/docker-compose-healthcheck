@@ -4,6 +4,8 @@
 Since docker-compose [version 2.1 file format](https://docs.docker.com/compose/compose-file/compose-versioning/#version-21) the [healthcheck](https://docs.docker.com/compose/compose-file/#healthcheck) parameter has been introduced.
 This allows a check to be configured in order to determine whether or not containers for a service are "healthy."
 
+Note that the following solution does not work for docker-compose v3. See [this issue](https://github.com/peter-evans/docker-compose-healthcheck/issues/3) for details.
+
 ## How can I wait for container X before starting Y?
 
 This is a common problem and in earlier versions of docker-compose requires the use of additional tools and scripts such as [wait-for-it](https://github.com/vishnubob/wait-for-it) and [dockerize](https://github.com/jwilder/dockerize).

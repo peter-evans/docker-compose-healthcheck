@@ -17,7 +17,7 @@ We can configure docker-compose to wait for the PostgreSQL container to startup 
 The following healthcheck has been configured to periodically check if PostgreSQL is ready using the `pg_isready` command. See the documentation for the `pg_isready` command [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
 ```yml
 healthcheck:
-  test: ["CMD-SHELL", "pg_isready -U postgres"]
+  test: ["CMD-SHELL", "pg_isready"]
   interval: 10s
   timeout: 5s
   retries: 5

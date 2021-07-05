@@ -17,7 +17,7 @@ PostgreSQLコンテナが起動し、リクエストを受け入れる準備が�
 以下の例では、`pg_isready`コマンドを使用してPostgreSQLが使用可能かどうかを定期的にチェックするように設定されています。[`pg_isready`コマンドの参照](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html)
 ```yml
 healthcheck:
-  test: ["CMD-SHELL", "pg_isready -U postgres"]
+  test: ["CMD-SHELL", "pg_isready"]
   interval: 10s
   timeout: 5s
   retries: 5

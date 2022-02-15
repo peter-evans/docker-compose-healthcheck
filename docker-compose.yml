@@ -33,7 +33,7 @@ services:
       kong-database:
         condition: service_healthy
       kong-migration:
-        condition: service_started
+        condition: service_completed_successfully
     links:
       - kong-database:kong-database
     ports:
